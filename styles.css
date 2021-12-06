@@ -128,7 +128,7 @@ body {
 
 @media (max-width: 650px) {
     #message-zone-cont {
-        width: 100%;
+        width: 100vw;
         max-height: 140px;
 
         top: 50px;
@@ -419,7 +419,14 @@ body {
 .social-media-icon {
     fill: #FFF;
     width: 50px;
+
+    transition: transform 0.5s ease-out;
 }
+
+.social-media-icon:hover {
+    transform: scale(1.2) rotateZ(2turn);
+}
+
 
 #maker-info {
     text-align: center;

@@ -118,5 +118,3 @@ buyButton.addEventListener('click', e => {
         showMessage('You must select at least one item to purchase', '#5f0000')
     };
 });
-
-export { productList };

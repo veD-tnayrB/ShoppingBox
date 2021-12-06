@@ -1,18 +1,24 @@
-import { productList } from "./shopBox.js";
+const productList = document.getElementById('product-list');
+const products = [...productList.children]
 
 const searchBar = document.getElementById('search-bar');
-const products = [...document.getElementsByClassName('product')];
 
+searchBar.addEventListener('keyup', e => {
 
-searchBar.addEventListener('keyup', (e) => {
-    console.log(products[1].children[1].textContent)
+    products.forEach(element => {
+        let productName = element.children[1].textContent;
+        let searchValue = searchBar.value
 
-    products.filter(element => {
-        if (element.children[1].textContent === searchBar.value || searchBar.value === '') {
-            element.style.display = 'flex'
+        if (productName.includes(searchValue)) {
+            element.style.display = 'flex';
 
-        }else {
+        } else if (searchBar.value === '') {
+            element.style.display = 'flex';
+
+        } else {
             element.style.display = 'none';
+
         }
+        
     })
-});
+})
