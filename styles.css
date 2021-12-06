@@ -16,7 +16,7 @@ body {
 
     scroll-behavior: smooth;
     
-    min-width: 350px;
+    min-width: 390px;
 }
 
 /* Header nav */
@@ -24,7 +24,7 @@ body {
     background: #383838;
 
     width: 98vw;
-    min-width: inherit;
+    min-width: 390px;
     height: 120px;
 
     margin: 0 0 5px 0;
@@ -398,6 +398,7 @@ body {
     background: #383838;
 
     height: 100px;
+    min-width: 390px;
 
     margin: 50px 0 0 0;
 
@@ -410,7 +411,7 @@ body {
 #social-media-cont {
     width: 50%;
 
-    margin: 10px;
+    margin: 5px;
 
     display: flex;
     justify-content: space-around;
