@@ -96,7 +96,7 @@ body {
     min-height: 0;
 
     position: fixed;
-    right: 20px;
+    left: 20px;
     bottom: 20px;
 
     transition: all 0.3s ease-out;
@@ -132,7 +132,7 @@ body {
         max-height: 140px;
 
         top: 50px;
-        right: unset;
+        left: unset;
         bottom: unset;
     }
 
@@ -143,11 +143,11 @@ body {
 
 @keyframes appear {
     0% {
-        right: -100px;
+        left: -100px;
     }
 
     100% {
-        right: 20px;
+        left: 20px;
     }
 }
 
@@ -169,7 +169,7 @@ body {
 
 .product {
     background: #FFF;
-    box-shadow: 0 1px 8px 3px #afafaf;
+    box-shadow: 0 0 10px 1px #bebebe;
     list-style: none;
 
     width: 320px;
@@ -427,7 +427,6 @@ body {
 .social-media-icon:hover {
     transform: scale(1.2) rotateZ(2turn);
 }
-
 
 #maker-info {
     text-align: center;
