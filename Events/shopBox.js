@@ -1,7 +1,9 @@
 import showMessage from "./messages.js";
 
-const productList = document.getElementById('product-list')
+const productList = document.getElementById('product-list');
+
 const shoppingBox = document.getElementById('table-body');
+let currentProducts = [];
 
 const total = document.getElementById('total');
 let currentTotal = Number(total.textContent.replace('TOTAL:', '').replace('$', ''));
@@ -22,21 +24,16 @@ productList.addEventListener('click', e => {
     }
     
     // Add the selected product to a table (shoppingBox)
-    let shoppingChildrens = [...shoppingBox.children]
+    let productName = product.children[1].textContent;
 
-    if (shoppingChildrens.length > 0) {
-        let productName = product.children[1].textContent;
-        
-        shoppingChildrens.forEach(existingProduct => {
-            let existingProductName = existingProduct.children[1].children[0].textContent;
-            
-            if (existingProductName === productName) {
-                showMessage('The product you are trying to add currently exists in the Shopping Box', '#5f0000')
-            }
-        })
-        
-    } else {
+    
+    
+    
 
+    
+    
+
+    function addProduct() {
         const tableRow = document.createElement('tr');
         tableRow.className = 'product-selected';
 
@@ -65,7 +62,7 @@ productList.addEventListener('click', e => {
         let productPrice = Number(productChildrens[2].textContent.replace('$', ''));
         total.textContent = `TOTAL: ${currentTotal += productPrice}$`;
     }
-    
+
 });
 
 // Detect a amount change

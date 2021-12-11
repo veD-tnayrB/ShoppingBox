@@ -5,6 +5,17 @@ const searchBar = document.getElementById('search-bar');
 let as = [];
 searchBar.addEventListener('keyup', e => {
     products.forEach(product => {
-        console.log(product.children[1].textContent)
+        let productName = product.children[1].textContent;
+
+        if (productName.includes(searchBar.value)) {
+            product.style.display = 'flex';
+
+        } else if (searchBar.value === '') {
+            product.style.display = 'flex';
+
+        } else {
+            product.style.display = 'none';
+            
+        }
     })
 })
