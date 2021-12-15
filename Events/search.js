@@ -1,9 +1,10 @@
-const products = [...document.getElementsByClassName('product')];
-const productsNameArr = products.map(product => product.children[1].textContent.toLowerCase());
+const productsList = document.getElementById('product-list');
+
 const searchBar = document.getElementById('search-bar');
 
-let as = [];
 searchBar.addEventListener('keyup', e => {
+    const products = [...productsList.children];
+
     products.forEach(product => {
         let productName = product.children[1].textContent;
 
