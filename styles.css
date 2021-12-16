@@ -1,6 +1,3 @@
-/* Import Rubik */
-@import url('https://fonts.googleapis.com/css?family=Rubik');
-
 /* General Config */
 * {
     margin: 0;
@@ -12,7 +9,7 @@ body {
 
     font-size: 16px;
     font-weight: normal;
-    font-family: 'Rubik';
+    font-family: 'Red Hat Display', sans-serif;
 
     scroll-behavior: smooth;
     
@@ -99,8 +96,6 @@ body {
     left: 20px;
     bottom: 20px;
 
-    transition: all 0.3s ease-out;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,10 +139,12 @@ body {
 @keyframes appear {
     0% {
         left: -100px;
+        opacity: 0;
     }
 
     100% {
-        left: 20px;
+        left: 10px;
+        opacity: 1;
     }
 }
 
@@ -169,22 +166,22 @@ body {
 
 .product {
     background: #FFF;
-    box-shadow: 0 0 10px 1px #bebebe;
+    box-shadow: 0 0 10px 1px #d6d6d6;
     list-style: none;
 
     width: 320px;
     height: 450px;
 
-    margin: 5px;
+    transition: all 0.1s ease-in;
 
-    transition: all 0.2s;
+    margin: 5px;
 
     display: flex;
     flex-direction: column;
 }
 
 .product:hover {
-    box-shadow: 0 1px 10px 2px #bebebe;
+    box-shadow: 0 0 10px 2px #e4e4e4;
     transform: scale(1.020);
 }
 
@@ -195,7 +192,6 @@ body {
 .product * {
     margin: 2px 15px;
 }
-
 
 .product-image {
     margin: 5px;
@@ -225,8 +221,6 @@ body {
     color: #FFF;
 
     padding: 5px;
-
-    transition: all 0.3s;
 }
 
 .delete-button:hover {
@@ -239,9 +233,8 @@ body {
 
 
 /* Shop Box List */
-
 #selected-section {
-    width: 92.3%;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -250,24 +243,27 @@ body {
 
 #shop-box-title {
     background: #383838;
-    border-radius: 10px 10px 0 0;
+    border-radius: 15px 15px 0 0;
     color: #FFF;
     
-    width: 90%;
+    width: 100%;
+    height: 60px;
     min-width: 365px;
+    
+    margin: 25px 0 0 0;
 
-    margin: 35px 0 0 0;
-    padding: 15px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 
-    text-align: center;
+#shop-box-title th {
+    font-size: 20px;
 }
 
 #shop-box-list {
-    background: #747474;
-
-    width: 91.8%;
+    width: 90%;
     min-width: 390px;
-    min-height: 190px;
 
     display: flex;
     flex-direction: column;
@@ -275,8 +271,11 @@ body {
 }
 
 #table-body {
+    background: #747474;
+
     width: 100%;
     min-width: 390px;
+    min-height: 190px;
 
     display: flex;
     flex-direction: column;
@@ -287,10 +286,10 @@ body {
     background: #ffffff;
     list-style: none;
 
-    width: 98.5%;
+    width: 98%;
     height: 95px;
 
-    margin: 3px 0;
+    margin: 4px 0;
 
     display: flex;
     justify-content: space-around;
@@ -365,9 +364,8 @@ body {
     color: #FFF;
     
     width: 90%;
+    height: 60px;
     min-width: 365px;
-
-    padding: 15px;
 
     display: flex;
     justify-content: space-around;
@@ -385,7 +383,7 @@ body {
 }
 
 #buy-button:hover {
-    background: #15ff00;
+    background: #13c203;
 }
 
 #buy-button:active {
@@ -393,7 +391,6 @@ body {
 }
 
 /* Footer */
-
 #footer {
     background: #383838;
 

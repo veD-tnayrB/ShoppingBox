@@ -7,7 +7,7 @@ export default function showMessage(message, color = '#13d301') {
     messageZone.style.display = 'flex';
     messageZone.style.background = color;
     messageZone.textContent = message;
-    messageZone.style.animation = 'appear ease-out 0.2s';
+    messageZone.style.animation = 'appear ease-out 0.3s';
 
     messageCont.appendChild(messageZone)
 
