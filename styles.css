@@ -13,7 +13,7 @@ body {
 
     scroll-behavior: smooth;
     
-    min-width: 390px;
+    min-width: 365px;
 }
 
 /* Header nav */
@@ -248,13 +248,12 @@ body {
     
     width: 100%;
     height: 60px;
-    min-width: 365px;
     
     margin: 25px 0 0 0;
 
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #shop-box-title th {
@@ -263,7 +262,6 @@ body {
 
 #shop-box-list {
     width: 90%;
-    min-width: 390px;
 
     display: flex;
     flex-direction: column;
@@ -274,7 +272,6 @@ body {
     background: #747474;
 
     width: 100%;
-    min-width: 390px;
     min-height: 190px;
 
     display: flex;
@@ -389,6 +386,9 @@ body {
 #buy-button:active {
     background: #0fa501;
 }
+
+
+
 
 /* Footer */
 #footer {
