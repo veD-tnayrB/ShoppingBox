@@ -13,7 +13,7 @@ body {
 
     scroll-behavior: smooth;
     
-    min-width: 365px;
+    min-width: 350px;
 }
 
 /* Header nav */
@@ -21,7 +21,7 @@ body {
     background: #383838;
 
     width: 98vw;
-    min-width: 390px;
+    min-width: 350px;
     height: 120px;
 
     margin: 0 0 5px 0;
@@ -262,6 +262,7 @@ body {
 
 #shop-box-list {
     width: 90%;
+    min-width: 350px;
 
     display: flex;
     flex-direction: column;
@@ -361,8 +362,8 @@ body {
     color: #FFF;
     
     width: 90%;
+    min-width: 350px;
     height: 60px;
-    min-width: 365px;
 
     display: flex;
     justify-content: space-around;
@@ -395,7 +396,7 @@ body {
     background: #383838;
 
     height: 100px;
-    min-width: 390px;
+    min-width: 350px;
 
     margin: 50px 0 0 0;
 
