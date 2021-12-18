@@ -13,15 +13,15 @@ body {
 
     scroll-behavior: smooth;
     
-    min-width: 350px;
+    min-width: 320px;
 }
 
 /* Header nav */
 #main-header{ 
-    background: #383838;
+    background: #2a2a2a;
 
     width: 98vw;
-    min-width: 350px;
+    min-width: 320px;
     height: 120px;
 
     margin: 0 0 5px 0;
@@ -149,7 +149,6 @@ body {
 }
 
 /* Main page */
-
 #main {
     display: flex;
     flex-direction: column;
@@ -170,6 +169,7 @@ body {
     list-style: none;
 
     width: 320px;
+    min-width: 310px;
     height: 450px;
 
     transition: all 0.1s ease-in;
@@ -261,7 +261,7 @@ body {
 
 #shop-box-list {
     width: 90%;
-    min-width: 350px;
+    min-width: 320px;
 
     display: flex;
     flex-direction: column;
@@ -338,12 +338,13 @@ body {
     color: #FFF;
     font-weight: 600;
 
-    width: 21px;
-    height: 30px;
+    padding: 3px 1px;
 
     transition: transition 0.4s, background 0.2s;
 
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .deleteButton:hover {
@@ -365,7 +366,7 @@ body {
     color: #FFF;
     
     width: 90%;
-    min-width: 350px;
+    min-width: 320px;
     height: 60px;
 
     display: flex;
@@ -409,6 +410,19 @@ body {
 
 @media (max-width: 600px) {
 
+    #selected-section {
+        width: 95vw;
+        min-width: 320px;
+        height: 100vh;
+        min-height: 60px;
+
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        display: none;
+    }
+
     @keyframes shoppingBoxAppear {
         0% {
             opacity: 0;
@@ -441,24 +455,12 @@ body {
         display: flex;
     }
 
-    #selected-section { background: red;
-        width: 95vw;
-        min-width: 350px;
-        height: 100vh;
-        min-height: 60px;
-
-        position: fixed;
-        top: 0;
-        right: 0;
-
-        display: none;
-    }
-
     #shop-box-list {
         background: #666;
         width: 100%;
         height: 95%;
     }
+    
    #shop-box-title {
         background: #242424;
         border-radius: 0;
@@ -492,10 +494,10 @@ body {
 
 /* Footer */
 #footer {
-    background: #383838;
+    background: #181818;
 
     height: 100px;
-    min-width: 350px;
+    min-width: 320px;
 
     margin: 50px 0 0 0;
 

@@ -50,40 +50,10 @@ productList.addEventListener('click', e => {
     total.textContent = `TOTAL: ${currentTotal += productPrice}$`;
 });
 
-
-// Delete the selected product
+// It detects when a button is pressed and based on that it increases or reduces the amount of products to buy.
 shoppingBox.addEventListener('click', e => {
-    if (e.target.className === 'deleteButton') {
-        let product = e.target.parentNode.parentNode;
-
-        let liCont = document.createElement('li');
-        liCont.className = 'product';
-        
-        let productChildrens = [...product.children];
-
-        productChildrens[0].children[0].className = 'product-image';
-        productChildrens[4].children[0].style.display = 'none';
-        productChildrens[5].children[0].style.display = 'none';
-
-        let productPrice = Number(productChildrens[2].children[0].textContent.replace('$', ''));
-        let amount = Number(product.children[4].children[0].children[1].textContent);
-
-        total.textContent = `TOTAL: ${currentTotal -= (productPrice * amount)}$`;
-    
-
-        productChildrens.forEach(contElement => {
-            liCont.appendChild(contElement.children[0]);
-        });
-
-        showMessage(`${liCont.children[1].textContent} Has been successfully removed!`, '#5f0000');
-
-        product.remove();
-        productList.appendChild(liCont);
-        
-
-
     // Calculate the total of all items based on their quantity
-    } else if (e.target.className === 'count-button') {
+    if (e.target.className === 'count-button') {
         
         let product = e.target.parentNode.parentNode.parentNode;
         let productPrice = Number(product.children[2].textContent.replace('$', ''));
@@ -108,6 +78,43 @@ shoppingBox.addEventListener('click', e => {
         countCalculator(productPrice, e.target.textContent);
 
     };
+})
+
+
+// Delete the selected product
+shoppingBox.addEventListener('click', e => {
+    let product;
+    if (e.target.className === 'deleteButton') {
+        product = e.target.parentNode.parentNode;
+
+    } else if (e.target.parentNode.className === 'deleteButton') {
+        product = e.target.parentNode.parentNode.parentNode;
+    }
+
+
+    let liCont = document.createElement('li');
+    liCont.className = 'product';
+        
+    let productChildrens = [...product.children];
+
+    productChildrens[0].children[0].className = 'product-image';
+    productChildrens[4].children[0].style.display = 'none';
+    productChildrens[5].children[0].style.display = 'none';
+
+    let productPrice = Number(productChildrens[2].children[0].textContent.replace('$', ''));
+    let amount = Number(product.children[4].children[0].children[1].textContent);
+
+    total.textContent = `TOTAL: ${currentTotal -= (productPrice * amount)}$`;
+    
+
+    productChildrens.forEach(contElement => {
+        liCont.appendChild(contElement.children[0]);
+    });
+
+    showMessage(`${liCont.children[1].textContent} Has been successfully removed!`, '#5f0000');
+
+    product.remove();
+    productList.appendChild(liCont);
 });
 
 
