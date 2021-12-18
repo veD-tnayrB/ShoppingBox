@@ -298,6 +298,7 @@ body {
     height: 100%;
 
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -308,8 +309,7 @@ body {
 .count-cont {
     display: none;
 
-    min-width: 60px;
-    max-width: 69px;
+    width: 70px;
 }
 
 .count-indicator {
@@ -397,7 +397,7 @@ body {
     border: 0;
     border-radius: 50%;
 
-    padding: 15px;
+    padding: 20px;
 
     position: fixed;
     bottom: 30px;
@@ -457,6 +457,7 @@ body {
 
     #shop-box-list {
         background: #666;
+
         width: 100%;
         height: 95%;
     }
@@ -488,6 +489,24 @@ body {
 
         padding: 10px;
         display: flex;
+    }
+
+    .product-selected .product-name {
+        font-size: 17px;
+        max-width: 70px;
+    }
+
+    .product-selected *:nth-child(4)  {
+        display: none;
+    }
+
+    .count-button {
+        padding: 15px 10px;
+    }
+
+    .deleteButton {
+        margin: 0 8px;
+        padding: 10px 8px;
     }
 }
 

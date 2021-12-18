@@ -57,7 +57,7 @@ shoppingBox.addEventListener('click', e => {
         
         let product = e.target.parentNode.parentNode.parentNode;
         let productPrice = Number(product.children[2].textContent.replace('$', ''));
-
+        
         let count = e.target.parentNode.children[1];
         let countNumber = Number(count.textContent);
 
@@ -89,6 +89,10 @@ shoppingBox.addEventListener('click', e => {
 
     } else if (e.target.parentNode.className === 'deleteButton') {
         product = e.target.parentNode.parentNode.parentNode;
+
+    } else {
+        return
+        
     }
 
 
