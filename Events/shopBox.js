@@ -91,8 +91,8 @@ shoppingBox.addEventListener('click', e => {
         product = e.target.parentNode.parentNode.parentNode;
 
     } else {
-        return
-        
+        return;
+
     }
 
 
