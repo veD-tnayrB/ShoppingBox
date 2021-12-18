@@ -84,6 +84,11 @@ body {
     width: 60px;
 
     margin: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#settings-icon:hover {
+    transform: rotate(180deg);
 }
 
 /* Messsage Zone */
@@ -291,6 +296,25 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+
+@keyframes impossibleToDo {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transfom: rotate(0);
+    }
 }
 
 .product-selected td {

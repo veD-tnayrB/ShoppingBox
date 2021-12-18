@@ -72,6 +72,8 @@ shoppingBox.addEventListener('click', e => {
     
             } else {
                 showMessage('The minimum number of items to buy is 1 and the maximum is 5', '#5f0000');
+                product.style.animation = 'impossibleToDo 0.5s ease-in-out';
+                setTimeout(() => product.style.animation = '', 600);
             };
         };
 
