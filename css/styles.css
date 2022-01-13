@@ -277,9 +277,9 @@ body {
 
 #table-body {
     background: #747474;
+    overflow-y: hidden;
 
     width: 100%;
-    min-height: 190px;
 
     display: flex;
     flex-direction: column;
