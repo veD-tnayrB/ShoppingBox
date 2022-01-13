@@ -356,7 +356,7 @@ body {
     background: #222222;
 }
 
-.deleteButton {
+.delete-button {
     background: #a10000;
     border: 0;
     color: #FFF;
@@ -364,19 +364,19 @@ body {
 
     padding: 3px 1px;
 
-    transition: transition 0.4s, background 0.2s;
+    transition: transition 0.4s;
 
     display: none;
     justify-content: center;
     align-items: center;
 }
 
-.deleteButton:hover {
+.delete-button:hover {
     background: #d30000;
     transform: scale(1.2);
 }
 
-.deleteButton:active {
+.delete-button:active {
     background: #610000;
     transform: scale(1);
 }
