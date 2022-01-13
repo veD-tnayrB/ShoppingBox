@@ -199,6 +199,8 @@ body {
 }
 
 .product-image {
+    min-height: 320px;
+
     margin: 5px;
 
     align-self: center;
@@ -327,7 +329,7 @@ body {
 }
 
 .product-selected-img {
-    height: 100%;  
+    height: 100%;
 }
 
 .count-cont {
