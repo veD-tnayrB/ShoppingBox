@@ -1,13 +1,14 @@
-import product from "./products.js";
 export default class UI {
 
-    static productList = document.getElementById('product-list')
+    static productList = document.getElementById('product-list');
+    static shoppingBox = document.getElementById('table-body');
 
     static total = document.getElementById('total');
     static currentTotal = Number(total.textContent.replace('TOTAL:', '').replace('$', ''));
 
 
-    static showSearchedProduct(value) {
+
+    static showProduct(value) {
         const products = [...UI.productList.children];
 
         products.forEach(product => {
@@ -26,25 +27,37 @@ export default class UI {
         })
     }
 
-    static createListedProduct(img, name, price, maker, template, destiny) {
-        const listedProductTemplate = document.getElementById(template).content;
+    static createProductStructure(product, template, destiny) {
+        const productTemplate = document.getElementById(template).content;
+    
+        const productImgSrc = product.querySelector('img').src;
+        const imgSrc = productTemplate.querySelector('img');
+        imgSrc.setAttribute('src', productImgSrc);
+        
+        const productNameText = product.querySelector('.product-name').textContent;
+        const name = productTemplate.querySelector('.product-name');
+        name.textContent = productNameText;
+    
+        const productPriceText = product.querySelector('.product-price').textContent;
+        const price = productTemplate.querySelector('.product-price');
+        price.textContent = productPriceText;
+    
+        const productMakerText = product.querySelector('.product-maker').textContent;
+        const maker = productTemplate.querySelector('.product-maker');
+        maker.textContent = productMakerText;
+    
+        if (template === 'listed-product') {
+            const quantity = Number(product.querySelector('.count-indicator').textContent);
 
+            UI.total.textContent = `TOTAL: ${UI.currentTotal -= Number(price.textContent.replace('$', '')) * quantity}$`;
 
-        const imageSrc = listedProductTemplate.querySelector('img');
-        imageSrc.setAttribute('src', img);
+        } else {
+            UI.total.textContent = `TOTAL: ${UI.currentTotal += Number(price.textContent.replace('$', ''))}$`;
+        }
 
-        const nameInfo = listedProductTemplate.querySelector('.product-name');
-        nameInfo.textContent = name;
-
-        const priceInfo = listedProductTemplate.querySelector('.product-price');
-        priceInfo.textContent = price;
-
-        const makerInfo = listedProductTemplate.querySelector('.product-maker');
-        makerInfo.textContent = maker;
-
-        destiny.appendChild(listedProductTemplate.cloneNode(true));
+        destiny.appendChild(productTemplate.cloneNode(true));
+        product.remove();
     }
-
 
     static changeQuantity(button) {
         const product = button.parentNode.parentNode.parentNode;
@@ -98,19 +111,15 @@ export default class UI {
         }
     }
 
-    static setAnimation(element, animation, duration, finalDisplay, dissapearLater = false) {
-        element.style.display = finalDisplay
+    static setAnimation(element, setInitialDisplay, animation, duration, hideLater = false) {
+        element.style.display = setInitialDisplay;
         element.style.animation = `${animation} ${duration} ease-in-out`;
-        
-        setTimeout(() => {
-            element.style.animation = '';
 
-            if (dissapearLater === true) {
-                element.style.display = 'none';
-            }
-
-        }, Number(duration.replace('ms', '')) + 1)
+        if (hideLater === true) {
+            setTimeout(() => element.style.display = 'none', Number(duration.replace('ms', '')) + 1);
+        }
 
     }
+
 
 }
