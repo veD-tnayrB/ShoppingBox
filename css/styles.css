@@ -1,3 +1,8 @@
+:root {
+    --Main-color: #202020;
+    --Secondary-color: #3b3b3b;
+}
+
 /* General Config */
 * {
     margin: 0;
@@ -5,7 +10,7 @@
 }
 
 body {
-    background: #F4F4F4;
+    background: #ffffff;
 
     font-size: 16px;
     font-weight: normal;
@@ -13,12 +18,12 @@ body {
 
     scroll-behavior: smooth;
     
-    min-width: 320px;
+    min-height: 580px;
 }
 
 /* Header nav */
 #main-header{ 
-    background: #2a2a2a;
+    background: var(--Main-color);
 
     width: 98vw;
     min-width: 320px;
@@ -62,22 +67,19 @@ body {
     }
 }
 
-#search-form {
-    width: 45%;
-    height: 30px;
-}
-
 #search-bar {
+    background: var(--Secondary-color);
+    color: #FFF;
     border: 0;
-    border-radius: 0;
+    border-radius: 5px;
 
     font-size: 17px;
-    outline: none;
+    outline: #ffffff00;
 
-    width: 98%;
-    height: 75%;
+    width: 45%;
+    height: 25px;
 
-    padding: 4px 8px;
+    padding: 4px 10px;
 }
 
 #settings-icon {
@@ -87,7 +89,7 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-#settings-icon:hover {
+#settings-icon:active {
     transform: rotate(180deg);
 }
 
@@ -141,7 +143,7 @@ body {
     }
 }
 
-@keyframes appear {
+@keyframes messageAppear {
     0% {
         left: -100px;
         opacity: 0;
@@ -170,7 +172,7 @@ body {
 
 .product {
     background: #FFF;
-    box-shadow: 0 0 10px 1px #d6d6d6;
+    box-shadow: 1px 4px 10px 1px #e0e0e0;
     list-style: none;
 
     width: 320px;
@@ -186,7 +188,7 @@ body {
 }
 
 .product:hover {
-    box-shadow: 0 0 10px 2px #e4e4e4;
+    box-shadow: 1 4px 5px 1px #f1efef;
     transform: scale(1.020);
 }
 
@@ -199,7 +201,6 @@ body {
 }
 
 .product-image {
-    min-height: 320px;
 
     margin: 5px;
 
@@ -248,8 +249,7 @@ body {
 }
 
 #shop-box-title {
-    background: #383838;
-    border-radius: 15px 15px 0 0;
+    background: var(--Main-color);
     color: #FFF;
     
     width: 100%;
@@ -276,10 +276,12 @@ body {
 }
 
 #table-body {
-    background: #747474;
+    background: var(--Secondary-color);
     overflow-y: hidden;
 
     width: 100%;
+
+    min-height: 208px;
 
     display: flex;
     flex-direction: column;
@@ -333,8 +335,6 @@ body {
 }
 
 .count-cont {
-    display: none;
-
     width: 70px;
 }
 
@@ -343,7 +343,7 @@ body {
 }
 
 .count-button {
-    background: #333333;
+    background: var(--Main-color);
     color: #FFF;
     border: 0;
 
@@ -368,7 +368,7 @@ body {
 
     transition: transition 0.4s;
 
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -388,7 +388,7 @@ body {
 }
 
 #total-cont {
-    background: #383838;
+    background: var(--Main-color);
     color: #FFF;
     
     width: 90%;
@@ -482,14 +482,13 @@ body {
     }
 
     #shop-box-list {
-        background: #666;
+        background: var(--Secondary-color);
 
         width: 100%;
         height: 95%;
     }
     
    #shop-box-title {
-        background: #242424;
         border-radius: 0;
 
         height: 40px;
@@ -497,12 +496,10 @@ body {
     }
 
     #table-body {
-        background: #666666;
         overflow-y: scroll;
     }
 
     #total-cont {
-        background: #242424;
         width: 95%;
 
         position: fixed;
@@ -513,7 +510,7 @@ body {
         background: #383838;
         border: 0;
 
-        padding: 10px;
+        padding: 12px;
         display: flex;
     }
 
@@ -539,26 +536,28 @@ body {
 
 /* Footer */
 #footer {
-    background: #181818;
+    background: var(--Main-color);
 
-    height: 100px;
+    min-height: 100px;
     min-width: 320px;
 
+    padding: 10px 0;
     margin: 50px 0 0 0;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap:wrap-reverse;
     align-items: center;
 }
 
 #social-media-cont {
     width: 50%;
+    height: 90%;
 
     margin: 5px;
 
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .social-media-icon {
@@ -573,10 +572,14 @@ body {
 }
 
 #maker-info {
-    text-align: center;
+    color: #FFF;
+    font-size: 80%;
+    font-weight: 200;
+
+    width: 40%;
+
+    margin: 0 0 0 10px;
+
     display: flex;
     flex-wrap: wrap;
-
-    font-weight: 200;
-    color: #FFF;
 }
