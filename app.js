@@ -2,6 +2,8 @@ import UI from './js/ui.js';
 
 const productList = document.getElementById('product-list');
 const shoppingBox = document.getElementById('table-body');
+
+
 // Search the products
 const searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('keyup', () => UI.showSearchedProduct(searchBar.value));
@@ -30,6 +32,7 @@ shoppingBox.addEventListener('click', e => {
 
 
 // "Buy" all elements
+const buyButton = document.getElementById('buy-button');
 buyButton.addEventListener('click', () => UI.buyProducts())
 
 
