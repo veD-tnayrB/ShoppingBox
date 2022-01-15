@@ -10,7 +10,7 @@
 }
 
 body {
-    background: #ffffff;
+    background: #FFF;
 
     font-size: 16px;
     font-weight: normal;
@@ -53,7 +53,8 @@ body {
 }
 
 #logo-icon {
-    width: 60px;
+    color: #FFF;
+    font-size: 60px;
     margin: 0 10px 0  0;
 }
 
@@ -83,13 +84,14 @@ body {
 }
 
 #settings-icon {
-    width: 60px;
+    color: #FFF;
+    font-size: 45px;
 
     margin: 25px;
     transition: transform 0.3s ease-in-out;
 }
 
-#settings-icon:active {
+#settings-icon:hover {
     transform: rotate(180deg);
 }
 
@@ -124,7 +126,6 @@ body {
     text-align: center;
     align-items: center;
     
-    z-index: 1;
 }
 
 @media (max-width: 650px) {
@@ -182,6 +183,7 @@ body {
 
     margin: 5px;
 
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -227,16 +229,13 @@ body {
     border: 0;
     color: #FFF;
 
+}
+
+.delete-button i {
+    font-size: 20px;
     padding: 5px;
 }
 
-.delete-button:hover {
-    transform: scale(1.2);
-}
-
-.delete-button:active {
-    transform: scale(1);
-}
 
 /* Shop Box List */
 #selected-section {
@@ -288,7 +287,7 @@ body {
 }
 
 .product-selected {
-    background: #ffffff;
+    background: #FFF;
     list-style: none;
 
     width: 98%;
@@ -386,6 +385,13 @@ body {
     display: none;
 }
 
+#close-button-icon {
+    color: #FFF;
+    font-size: 25px;
+
+    padding: 0 5px;
+}
+
 #total-cont {
     background: var(--Main-color);
     color: #FFF;
@@ -417,20 +423,24 @@ body {
     background: #0fa501;
 }
 
-#shopping-box-button {
-    background: #242424;
-    border: 0;
+#open-shopping-box-button {
+    background: var(--Main-color);
     border-radius: 50%;
-
-    padding: 20px;
+    border: 0;
 
     position: fixed;
     bottom: 30px;
     right: 30px;
 
     display: none;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+}
+
+#open-shopping-box-button i {
+    color: #FFF;
+    font-size: 25px;
+
+    padding: 22px 20px;
 }
 
 @media (max-width: 600px) {
@@ -472,8 +482,8 @@ body {
         }
     }
 
-    #shopping-box-button {
-        display: flex;
+    #open-shopping-box-button {
+        display: initial;
     }
 
     #close-shopping-box {
@@ -506,7 +516,7 @@ body {
     }
 
     #close-button {
-        background: #383838;
+        background: var(--Secondary-color);
         border: 0;
 
         padding: 12px;
@@ -544,7 +554,7 @@ body {
     margin: 50px 0 0 0;
 
     display: flex;
-    flex-wrap:wrap-reverse;
+    flex-wrap: wrap-reverse;
     align-items: center;
 }
 
@@ -560,8 +570,8 @@ body {
 }
 
 .social-media-icon {
-    fill: #FFF;
-    width: 50px;
+    color: #FFF;
+    font-size: 45px;
 
     transition: transform 0.5s ease-out;
 }
@@ -572,13 +582,10 @@ body {
 
 #maker-info {
     color: #FFF;
-    font-size: 80%;
+    font-size: 15px;
     font-weight: 200;
 
     width: 40%;
 
     margin: 0 0 0 10px;
-
-    display: flex;
-    flex-wrap: wrap;
 }

@@ -13,18 +13,29 @@ searchBar.addEventListener('keyup', () => UI.showSearchedProduct(searchBar.value
 productList.addEventListener('click', e => {
     let product;
 
-    if (e.target.classList.value === 'product') product = e.target;
-    else if (e.target.parentNode.classList.value === 'product') product = e.target.parentNode;
+    if (e.target.classList.value === 'product') {
+        product = e.target;
+        UI.createProductStructure(product, 'selected-product', shoppingBox);
+    }
+    else if (e.target.parentNode.classList.value === 'product') { 
+        product = e.target.parentNode;
+        UI.createProductStructure(product, 'selected-product', shoppingBox);
 
-    UI.createProductStructure(product, 'selected-product', shoppingBox);
+    } else {
+        console.log('any selected product')
+    }
+
 });
 
 
 // Remove products from shoppingBox and change the amount of products to buy
 shoppingBox.addEventListener('click', e => {
-    if (e.target.classList.value === 'delete-product-icon') {
+    if (e.target.classList.value === 'delete-product-icon fas fa-trash') {
         let product = e.target.parentNode.parentNode.parentNode;
+        UI.createProductStructure(product, 'listed-product', productList);
 
+    } else if (e.target.classList.value === 'delete-button') {
+        let product = e.target.parentNode.parentNode;
         UI.createProductStructure(product, 'listed-product', productList);
 
     } else if (e.target.classList.value === 'count-button') UI.changeQuantity(e.target);
@@ -38,7 +49,7 @@ buyButton.addEventListener('click', () => UI.buyProducts())
 
 // Hide and Show the shopping box seccion in mobile devices
 const shoppingBoxSeccion = document.getElementById('selected-section');
-const openShoppingBoxButton = document.getElementById('shopping-box-button');
+const openShoppingBoxButton = document.getElementById('open-shopping-box-button');
 const closeShoppingBoxButton = document.getElementById('close-button');
 
 openShoppingBoxButton.addEventListener('click', e => {

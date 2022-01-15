@@ -2,8 +2,10 @@
 <html lang="en">
     <head>
         <title>ShoppingGO</title>
-        <link rel="shortcut icon" href="assets/img/icons/shoppingGO-icon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="assets/img/icons/ShoppingGO-icon.svg" type="image/x-icon">
         <link rel="stylesheet" href="css/styles.css">
+
+        <script src="https://kit.fontawesome.com/98f2660b8c.js" crossorigin="anonymous"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +19,12 @@
         <header id="main-header">
             <nav id="main-nav">
                 <div id="logo-cont">
-                    <img id="logo-icon" src="assets/img/icons/icons8-idea.svg" alt="ShoppingGO Icon">
+                    <i id="logo-icon" class="fas fa-lightbulb" alt="ShoppingGO Icon"></i>
                     <h1 id="text-logo">ShoppingGO</h1>
                 </div>
                 <input id="search-bar" type="text" placeholder="Insert product name...">
 
-                <img id="settings-icon" src="assets/img/icons/icons8-settings.svg">
+                <i id="settings-icon" class="fas fa-cog"></i>
             </nav>
         </header>
 
@@ -108,7 +110,7 @@
                 </table>
 
                 <div id="total-cont">
-                    <button id="close-button"><img src="assets/img/icons/icons8-close.svg" alt="Close button"></button>
+                    <button id="close-button"><i id="close-button-icon" class="fas fa-times" alt="Close button"></i></button>
                     <h4 id="total">TOTAL: 0$</h4>
                     <button type="submit" id="buy-button">Buy product</button>
                 </div>
@@ -119,7 +121,7 @@
             </div>
         </main>
 
-        <button id="shopping-box-button"><img src="assets/img/icons/icons8-box.svg" alt="Open Shopping Box button"></button>
+        <button id="open-shopping-box-button"><i class="fas fa-box-open"></i></button>
 
         <!-- Footer Zone -->
         <footer id="footer">
@@ -127,8 +129,8 @@
                 This is a project made by Bryant Caballero (veD-tnayrB) to practice his skill about HTML, CSS and JavaScript Vanilla, the producst that here are showed dont are to sale.
             </h4>
             <div id="social-media-cont">
-                <a href="https://twitter.com/BryantDev_"><img class="social-media-icon" src="assets/img/icons/icons8-twitter.svg" alt="Twitter icon"></a>
-                <a href="https://github.com/veD-tnayrB"><img class="social-media-icon" src="assets/img/icons/icons8-github.svg" alt="Github icon"></a>
+                <a href="https://twitter.com/BryantDev_"><i class="social-media-icon fab fa-twitter" alt="Twitter icon"></i></a>
+                <a href="https://github.com/veD-tnayrB"><i class="social-media-icon fab fa-github"></i></a>
             </div>
         </footer>
 
@@ -156,7 +158,7 @@
                         <button class="count-button">+</button>
                     </div>
                 </td>
-                <td><button class="delete-button"><img class="delete-product-icon" src="assets/img/icons/icons8-basura.svg" alt="Eliminar producto"></button></td>
+                <td><button class="delete-button"><i class="delete-product-icon fas fa-trash"></i></button></td>
             </tr>
         </template>
 

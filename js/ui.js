@@ -8,7 +8,7 @@ export default class UI {
 
 
 
-    static showProduct(value) {
+    static showSearchedProduct(value) {
         const products = [...UI.productList.children];
 
         products.forEach(product => {
@@ -25,6 +25,13 @@ export default class UI {
                 
             }
         })
+    }
+
+    static flagproduct(product) {
+        const checkIcon = document.createElement('i');
+        checkIcon.classList.add('fas fa-check-circle');
+
+        product.appendChild(checkIcon); // Working profess man, calm down 🤨
     }
 
     static createProductStructure(product, template, destiny) {
