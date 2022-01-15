@@ -17,6 +17,7 @@ body {
     font-family: 'Red Hat Display', sans-serif;
 
     scroll-behavior: smooth;
+    overflow-x: hidden;
     
     min-height: 580px;
 }
@@ -62,7 +63,7 @@ body {
     color: #FFF;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     #text-logo{
         display: none;
     }
@@ -98,7 +99,6 @@ body {
 /* Messsage Zone */
 #message-zone-cont {
     width: 250px;
-    min-height: 0;
 
     position: fixed;
     left: 20px;
@@ -133,7 +133,7 @@ body {
         width: 100vw;
         max-height: 140px;
 
-        top: 10px;
+        top: 5px;
         left: unset;
         bottom: unset;
     }
@@ -157,14 +157,15 @@ body {
 
 /* Main page */
 #main {
+    min-width: 320px;
+    min-height: 75vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #product-list {
-    min-height: 75vh;
-
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -176,7 +177,6 @@ body {
     list-style: none;
 
     width: 320px;
-    min-width: 310px;
     height: 450px;
 
     transition: all 0.1s ease-in;
@@ -186,6 +186,26 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.fa-check-circle {
+    color: rgb(3, 167, 3);
+    font-size: 36px;
+    transform: scale(2);
+    opacity: 0;
+
+    position: absolute;
+    top: -5px;
+    right: -20px;
+
+    animation: checkedProduct 200ms ease forwards;
+}
+
+@keyframes checkedProduct {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .product:hover {
@@ -223,19 +243,6 @@ body {
     color: #888888;
     font-weight: 200;
 }
-
-.delete-button {
-    background: #d30000;
-    border: 0;
-    color: #FFF;
-
-}
-
-.delete-button i {
-    font-size: 20px;
-    padding: 5px;
-}
-
 
 /* Shop Box List */
 #selected-section {
@@ -278,7 +285,6 @@ body {
     overflow-y: hidden;
 
     width: 100%;
-
     min-height: 208px;
 
     display: flex;
@@ -364,7 +370,7 @@ body {
 
     padding: 3px 1px;
 
-    transition: transition 0.4s;
+    transition: transform 0.15s;
 
     display: flex;
     justify-content: center;
@@ -379,6 +385,11 @@ body {
 .delete-button:active {
     background: #610000;
     transform: scale(1);
+}
+
+.delete-button i {
+    font-size: 20px;
+    padding: 5px;
 }
 
 #close-button { 
@@ -448,7 +459,6 @@ body {
     #selected-section {
         width: 95vw;
         min-width: 320px;
-        height: 100vh;
         min-height: 60px;
 
         position: fixed;
@@ -487,14 +497,11 @@ body {
     }
 
     #close-shopping-box {
-        display: flex;
+        display: initial;
     }
 
     #shop-box-list {
-        background: var(--Secondary-color);
-
         width: 100%;
-        height: 95%;
     }
     
    #shop-box-title {
@@ -506,6 +513,7 @@ body {
 
     #table-body {
         overflow-y: scroll;
+        height: 100vh;
     }
 
     #total-cont {

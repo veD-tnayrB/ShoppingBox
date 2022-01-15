@@ -7,17 +7,17 @@ export default class UI {
     static currentTotal = Number(total.textContent.replace('TOTAL:', '').replace('$', ''));
 
 
-
     static showSearchedProduct(value) {
+        const textValue = value.toLowerCase()
         const products = [...UI.productList.children];
 
         products.forEach(product => {
-            let productName = product.children[1].textContent;
+            let productName = product.children[1].textContent.toLowerCase();
 
-            if (productName.includes(value)) {
+            if (productName.includes(textValue)) {
                 product.style.display = 'flex';
 
-            } else if (value === '') {
+            } else if (textValue === '') {
                 product.style.display = 'flex';
 
             } else {
@@ -29,41 +29,67 @@ export default class UI {
 
     static flagproduct(product) {
         const checkIcon = document.createElement('i');
-        checkIcon.classList.add('fas fa-check-circle');
+        checkIcon.classList.add('fas');
+        checkIcon.classList.add('fa-check-circle');
 
-        product.appendChild(checkIcon); // Working profess man, calm down 🤨
+        product.appendChild(checkIcon);
+        
     }
 
-    static createProductStructure(product, template, destiny) {
-        const productTemplate = document.getElementById(template).content;
-    
-        const productImgSrc = product.querySelector('img').src;
-        const imgSrc = productTemplate.querySelector('img');
-        imgSrc.setAttribute('src', productImgSrc);
-        
-        const productNameText = product.querySelector('.product-name').textContent;
-        const name = productTemplate.querySelector('.product-name');
-        name.textContent = productNameText;
-    
-        const productPriceText = product.querySelector('.product-price').textContent;
-        const price = productTemplate.querySelector('.product-price');
-        price.textContent = productPriceText;
-    
-        const productMakerText = product.querySelector('.product-maker').textContent;
-        const maker = productTemplate.querySelector('.product-maker');
-        maker.textContent = productMakerText;
-    
-        if (template === 'listed-product') {
-            const quantity = Number(product.querySelector('.count-indicator').textContent);
+    static addProduct(product, template) {
 
-            UI.total.textContent = `TOTAL: ${UI.currentTotal -= Number(price.textContent.replace('$', '')) * quantity}$`;
+        if (product.querySelector('.fa-check-circle') === null) {
+            UI.flagproduct(product);
 
-        } else {
+            const productTemplate = document.getElementById(template).content;
+    
+            const productImgSrc = product.querySelector('img').src;
+            const imgSrc = productTemplate.querySelector('img');
+            imgSrc.setAttribute('src', productImgSrc);
+                
+            const productNameText = product.querySelector('.product-name').textContent;
+            const name = productTemplate.querySelector('.product-name');
+            name.textContent = productNameText;
+            
+            const productPriceText = product.querySelector('.product-price').textContent;
+            const price = productTemplate.querySelector('.product-price');
+            price.textContent = productPriceText;
+            
+            const productMakerText = product.querySelector('.product-maker').textContent;
+            const maker = productTemplate.querySelector('.product-maker');
+            maker.textContent = productMakerText;
+            
             UI.total.textContent = `TOTAL: ${UI.currentTotal += Number(price.textContent.replace('$', ''))}$`;
-        }
 
-        destiny.appendChild(productTemplate.cloneNode(true));
-        product.remove();
+            UI.shoppingBox.appendChild(productTemplate.cloneNode(true));
+            UI.showMessage(`${productNameText} Has been added to the box`);
+
+        }else { 
+            UI.setAnimation(product, 'flex', 'impossibleToDo', '300ms');
+
+        }
+    }
+
+    static removeProduct(product) {
+        let productSelectedName = product.querySelector('.product-name').textContent;
+        let existingProducts = UI.productList.querySelectorAll('.product');
+
+        existingProducts.forEach(listedProduct => {
+            let listedProductName = listedProduct.querySelector('.product-name').textContent;
+
+            if (productSelectedName === listedProductName) {
+                const checkIcon = listedProduct.querySelector('.fa-check-circle');
+                checkIcon.remove();
+
+                product.remove();
+            }
+        })
+
+
+        const price = product.querySelector('.product-price').textContent.replace('$', '');
+        const quantity = product.querySelector('.count-indicator').textContent;
+
+        UI.total.textContent = `TOTAL: ${UI.currentTotal -= Number(price) * quantity}$`;
     }
 
     static changeQuantity(button) {
@@ -84,10 +110,9 @@ export default class UI {
             UI.total.textContent = `TOTAL: ${UI.currentTotal -= productPrice}$`;
 
         } else {
-            UI.showMessage('The minimum number of items to buy is 1 and the maximum is 5', '#5f0000');
+            UI.showMessage('The minimum number of items to buy is 1 and the maximum is 5', '#a10000');
 
-            product.style.animation = 'impossibleToDo 0.5s ease-in-out';
-            setTimeout(() => product.style.animation = '', 600);
+            UI.setAnimation(product, 'flex', 'impossibleToDo', '300ms');
         }
     }
 
@@ -110,11 +135,24 @@ export default class UI {
     }
     
     static buyProducts() {
-        if (UI.currentTotal > 0) {
-            UI.showMessage('The products have been purchased successfully!');
-    
+        let existingProducts = UI.shoppingBox.querySelectorAll('.product-selected');
+        
+        if (existingProducts.length != 0) {
+            let total = 0;
+
+            existingProducts.forEach(product => {
+                let productPrice = Number(product.querySelector('.product-price').textContent.replace('$', ''));
+                let productQuantity = Number(product.querySelector('.count-indicator').textContent);
+
+                total += productPrice * productQuantity;
+            })
+
+            if (UI.currentTotal === total) {
+                UI.showMessage('The products have been successfully purchased! Thank you for trusting us');
+            }
         } else {
-            UI.showMessage('You must select at least one item to purchase', '#5f0000');
+            UI.showMessage('You must select at least one product to purchase', '#a10000')
+
         }
     }
 
@@ -125,6 +163,8 @@ export default class UI {
         if (hideLater === true) {
             setTimeout(() => element.style.display = 'none', Number(duration.replace('ms', '')) + 1);
         }
+
+        setTimeout(() => element.style.animation = '', Number(duration.replace('ms', '')) + 2)
 
     }
 

@@ -15,16 +15,17 @@ productList.addEventListener('click', e => {
 
     if (e.target.classList.value === 'product') {
         product = e.target;
-        UI.createProductStructure(product, 'selected-product', shoppingBox);
+
+        UI.addProduct(product, 'selected-product');
     }
     else if (e.target.parentNode.classList.value === 'product') { 
         product = e.target.parentNode;
-        UI.createProductStructure(product, 'selected-product', shoppingBox);
+
+        UI.addProduct(product, 'selected-product');
 
     } else {
-        console.log('any selected product')
+        console.log('any selected product'); // I put this here cause an error appear else (srry bad english)
     }
-
 });
 
 
@@ -32,11 +33,8 @@ productList.addEventListener('click', e => {
 shoppingBox.addEventListener('click', e => {
     if (e.target.classList.value === 'delete-product-icon fas fa-trash') {
         let product = e.target.parentNode.parentNode.parentNode;
-        UI.createProductStructure(product, 'listed-product', productList);
-
-    } else if (e.target.classList.value === 'delete-button') {
-        let product = e.target.parentNode.parentNode;
-        UI.createProductStructure(product, 'listed-product', productList);
+        UI.removeProduct(product)
+       
 
     } else if (e.target.classList.value === 'count-button') UI.changeQuantity(e.target);
 });
