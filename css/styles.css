@@ -179,7 +179,7 @@ body {
     width: 320px;
     height: 450px;
 
-    transition: all 0.1s ease-in;
+    transition: all 200ms ease-in;
 
     margin: 5px;
 
@@ -198,7 +198,7 @@ body {
     top: -5px;
     right: -20px;
 
-    animation: checkedProduct 200ms ease forwards;
+    animation: checkedProduct 200ms ease-in forwards;
 }
 
 @keyframes checkedProduct {
@@ -209,6 +209,7 @@ body {
 }
 
 .product:hover {
+    cursor: pointer;
     box-shadow: 1 4px 5px 1px #f1efef;
     transform: scale(1.020);
 }
@@ -222,6 +223,7 @@ body {
 }
 
 .product-image {
+    min-height: 322px;
 
     margin: 5px;
 
@@ -330,8 +332,11 @@ body {
     height: 100%;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.product-selected td:nth-child(2) {
+    width: 100px;
 }
 
 .product-selected-img {
@@ -352,14 +357,16 @@ body {
     border: 0;
 
     padding: 8px;
+    transition: background-color 200ms ease-in;
 }
 
 .count-button:hover {
-    background: #575757;
+    cursor: pointer;
+    background-color: #575757;
 }
 
 .count-button:active {
-    background: #222222;
+    background-color: #222222;
 }
 
 .delete-button {
@@ -370,7 +377,7 @@ body {
 
     padding: 3px 1px;
 
-    transition: transform 0.15s;
+    transition: transform 200ms ease-in;
 
     display: flex;
     justify-content: center;
@@ -378,6 +385,7 @@ body {
 }
 
 .delete-button:hover {
+    cursor: pointer;
     background: #d30000;
     transform: scale(1.2);
 }
@@ -427,6 +435,7 @@ body {
 }
 
 #buy-button:hover {
+    cursor: pointer;
     background: #13c203;
 }
 
@@ -581,7 +590,7 @@ body {
     color: #FFF;
     font-size: 45px;
 
-    transition: transform 0.5s ease-out;
+    transition: transform 200ms ease-in;
 }
 
 .social-media-icon:hover {

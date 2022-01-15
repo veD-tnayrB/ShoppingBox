@@ -14,55 +14,39 @@ export default class UI {
         products.forEach(product => {
             let productName = product.children[1].textContent.toLowerCase();
 
-            if (productName.includes(textValue)) {
-                product.style.display = 'flex';
+            const isFlex = productName.includes(textValue) ? true : false;
+            isFlex ? product.style.display = 'flex' : product.style.display = 'none';
 
-            } else if (textValue === '') {
-                product.style.display = 'flex';
+        })
+    }
 
-            } else {
-                product.style.display = 'none';
-                
-            }
+    static loadProducts(JSON) {
+        JSON.forEach(obj => {
+            const productReady = listedProductStructure(obj.image, obj.name, obj.price, obj.maker);
+            UI.productList.innerHTML += productReady;
         })
     }
 
     static flagproduct(product) {
-        const checkIcon = document.createElement('i');
-        checkIcon.classList.add('fas');
-        checkIcon.classList.add('fa-check-circle');
-
-        product.appendChild(checkIcon);
+        const checkIcon = `<i class="fas fa-check-circle"><i/>`;
+        product.innerHTML += checkIcon;
         
     }
 
-    static addProduct(product, template) {
+    static addProduct(product) {
+        let checkIcon = product.querySelector('.fa-check-circle');
 
-        if (product.querySelector('.fa-check-circle') === null) {
+        if (checkIcon === null) {
+            const [image, name, price, maker] = breakStructure(product);
+
+            const productReady = selectedProductStructure(image, name, price, maker);
+            UI.shoppingBox.innerHTML += productReady;
+            
+            let formatedPrice = Number(price.replace('$', ''));
+            UI.total.textContent = `TOTAL: ${UI.currentTotal += formatedPrice}$`;
+
+            UI.showMessage(`${name} Has been added to the box`);
             UI.flagproduct(product);
-
-            const productTemplate = document.getElementById(template).content;
-    
-            const productImgSrc = product.querySelector('img').src;
-            const imgSrc = productTemplate.querySelector('img');
-            imgSrc.setAttribute('src', productImgSrc);
-                
-            const productNameText = product.querySelector('.product-name').textContent;
-            const name = productTemplate.querySelector('.product-name');
-            name.textContent = productNameText;
-            
-            const productPriceText = product.querySelector('.product-price').textContent;
-            const price = productTemplate.querySelector('.product-price');
-            price.textContent = productPriceText;
-            
-            const productMakerText = product.querySelector('.product-maker').textContent;
-            const maker = productTemplate.querySelector('.product-maker');
-            maker.textContent = productMakerText;
-            
-            UI.total.textContent = `TOTAL: ${UI.currentTotal += Number(price.textContent.replace('$', ''))}$`;
-
-            UI.shoppingBox.appendChild(productTemplate.cloneNode(true));
-            UI.showMessage(`${productNameText} Has been added to the box`);
 
         }else { 
             UI.setAnimation(product, 'flex', 'impossibleToDo', '300ms');
@@ -71,13 +55,14 @@ export default class UI {
     }
 
     static removeProduct(product) {
-        let productSelectedName = product.querySelector('.product-name').textContent;
+        const [, name, price] = breakStructure(product); // Thanks for do that post on instagram ;) @jircdeveloper
+
         let existingProducts = UI.productList.querySelectorAll('.product');
 
         existingProducts.forEach(listedProduct => {
             let listedProductName = listedProduct.querySelector('.product-name').textContent;
 
-            if (productSelectedName === listedProductName) {
+            if (name === listedProductName) {
                 const checkIcon = listedProduct.querySelector('.fa-check-circle');
                 checkIcon.remove();
 
@@ -85,23 +70,20 @@ export default class UI {
             }
         })
 
-
-        const price = product.querySelector('.product-price').textContent.replace('$', '');
         const quantity = product.querySelector('.count-indicator').textContent;
-
-        UI.total.textContent = `TOTAL: ${UI.currentTotal -= Number(price) * quantity}$`;
+        UI.total.textContent = `TOTAL: ${UI.currentTotal -= Number(price.replace('$', '')) * quantity}$`;
     }
 
     static changeQuantity(button) {
         const product = button.parentNode.parentNode.parentNode;
-        const productPrice = Number(product.children[2].children[0].textContent.replace('$', ''));
+        const productPrice = Number(product.querySelector('.product-price').textContent.replace('$', ''));
         
-        const count = button.parentNode.children[1];
+        const count = product.querySelector('.count-indicator');
         const countNumber = Number(count.textContent);
 
         const symbol = button.textContent;
 
-        if (symbol === '+' && countNumber < 5) {
+        if (symbol === '+' && countNumber < 8) {
             count.textContent = `${countNumber + 1}`;
             UI.total.textContent = `TOTAL: ${UI.currentTotal += productPrice}$`;
     
@@ -110,9 +92,9 @@ export default class UI {
             UI.total.textContent = `TOTAL: ${UI.currentTotal -= productPrice}$`;
 
         } else {
-            UI.showMessage('The minimum number of items to buy is 1 and the maximum is 5', '#a10000');
+            UI.showMessage('The minimum number of items to buy is 1 and the maximum is 8', '#a10000');
 
-            UI.setAnimation(product, 'flex', 'impossibleToDo', '300ms');
+            UI.setAnimation(product, 'flex', 'impossibleToDo', '400ms');
         }
     }
 
@@ -121,16 +103,12 @@ export default class UI {
         const messageZone = document.createElement('div');
 
         messageZone.classList.value = 'message-zone';
-        messageZone.style.display = 'flex';
         messageZone.style.background = color;
         messageZone.textContent = message;
-        messageZone.style.animation = 'messageAppear ease-out 0.3s';
-
         messageCont.appendChild(messageZone);
+        UI.setAnimation(messageZone, 'flex', 'messageAppear', '300ms', true);
+        
 
-        setTimeout(() => {
-            messageZone.style.display = 'none';
-        }, 3000);
 
     }
     
@@ -156,17 +134,53 @@ export default class UI {
         }
     }
 
-    static setAnimation(element, setInitialDisplay, animation, duration, hideLater = false) {
+    static setAnimation(element, setInitialDisplay, animation, duration, hideLater = false, dissapearDelay = '0.1') {
         element.style.display = setInitialDisplay;
         element.style.animation = `${animation} ${duration} ease-in-out`;
 
         if (hideLater === true) {
-            setTimeout(() => element.style.display = 'none', Number(duration.replace('ms', '')) + 1);
+            setTimeout(() => element.style.display = 'none', Number(duration.replace('ms', '')) + dissapearDelay);
         }
 
-        setTimeout(() => element.style.animation = '', Number(duration.replace('ms', '')) + 2)
+        setTimeout(() => element.style.animation = '', Number(duration.replace('ms', '')) - 50);
 
     }
+}
 
+function breakStructure(product) {
+    const image = product.querySelector('img').src;
+    const name = product.querySelector('.product-name').textContent;
+    const price = product.querySelector('.product-price').textContent;
+    const maker = product.querySelector('.product-maker').textContent;
 
+    return [image, name, price, maker];
+}
+
+const listedProductStructure = (image, name, price, maker) => {
+    return  `
+    <li class="product">
+        <img src="${image}" class="product-image">
+        <h2 class="product-name">${name}</h2>
+        <h3 class="product-price">${price}</h3>
+        <h4 class="product-maker">${maker}</h4>
+    </li>`;
+}
+
+const selectedProductStructure = (image, name, price, maker) => {
+    return `
+         <tr class="product-selected">
+            <td><img src="${image}" class="product-selected-img"></td>
+            <td><h2 class="product-name">${name}</h2></td>
+            <td><h3 class="product-price">${price}</h3></td>
+            <td><h4 class="product-maker">${maker}</h4></td>
+            <td>
+                <div class="count-cont">
+                    <button class="count-button">-</button>
+                    <span class="count-indicator">1</span>
+                    <button class="count-button">+</button>
+                </div>
+            </td>
+            <td><button class="delete-button"><i class="delete-product-icon fas fa-trash"></i></button></td>
+        </tr>
+    `;
 }

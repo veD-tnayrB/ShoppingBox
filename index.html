@@ -33,68 +33,8 @@
         <main id="main">
             <section>
                 <ul id="product-list">
-                    <li class="product">
-                        <img src="assets/img/products/Alcatel.webp" alt="Alcatel" class="product-image">
-                        <h2 class="product-name">Alcatel</h2>
-                        <h3 class="product-price">100$</h3>
-                        <h4 class="product-maker">Alcatel MX</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/Iphone11.webp" alt="Iphone11" class="product-image">
-                        <h2 class="product-name">Iphone 11</h2>
-                        <h3 class="product-price">350$</h3>
-                        <h4 class="product-maker">Apple</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/Nova.webp" alt="Nova" class="product-image">
-                        <h2 class="product-name">Nova 13-A</h2>
-                        <h3 class="product-price">140$</h3>
-                        <h4 class="product-maker">Nova JP</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/Poco.webp" alt="Poco" class="product-image">
-                        <h2 class="product-name">Poco</h2>
-                        <h3 class="product-price">120$</h3>
-                        <h4 class="product-maker">Poco JP</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/PocoX3.webp" alt="Poco X3" class="product-image">
-                        <h2 class="product-name">Poco X3</h2>
-                        <h3 class="product-price">200$</h3>
-                        <h4 class="product-maker">Poco NZ</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/SamsungA21S.webp" alt="Samsung Galaxy A21S" class="product-image">
-                        <h2 class="product-name">Samsung A21S</h2>
-                        <h3 class="product-price">210$</h3>
-                        <h4 class="product-maker">Samsung VE</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/SamsungGalaxyA72.webp" alt="Samsung Galaxy A72" class="product-image">
-                        <h2 class="product-name">Samsung A72</h2>
-                        <h3 class="product-price">340$</h3>
-                        <h4 class="product-maker">Samsung CO</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/XiaomiRemi9A.webp" alt="Xiaomi Redmi 9A" class="product-image">
-                        <h2 class="product-name">Xiaomi Redmi 9A</h2>
-                        <h3 class="product-price">150$</h3>
-                        <h4 class="product-maker">Xiaomi MX</h4>
-                    </li>
-
-                    <li class="product">
-                        <img src="assets/img/products/ZTE.webp" alt="ZTE" class="product-image">
-                        <h2 class="product-name">ZTE</h2>
-                        <h3 class="product-price">240$</h3>
-                        <h4 class="product-maker">ZTE ARG</h4>
-                    </li>
+                    
+                </ul>
             </section>
             
             <!-- Products selected list Zone -->
@@ -113,7 +53,7 @@
                 <div id="total-cont">
                     <button id="close-button"><i id="close-button-icon" class="fas fa-times" alt="Close button"></i></button>
                     <h4 id="total">TOTAL: 0$</h4>
-                    <button type="submit" id="buy-button">Buy product</button>
+                    <button type="submit" id="buy-button">Buy</button>
                 </div>
             
             </section>
@@ -127,43 +67,13 @@
         <!-- Footer Zone -->
         <footer id="footer">
             <h4 id="maker-info">
-                This is a project made by Bryant Caballero (veD-tnayrB) to practice his skill about HTML, CSS and JavaScript Vanilla, the producst that here are showed dont are to sale.
+                This is a project made by Bryant Caballero (veD-tnayrB) to practice his skill about HTML, CSS and JavaScript Vanilla, the products that here are showed dont are to sale.
             </h4>
             <div id="social-media-cont">
                 <a target="_blank" href="https://twitter.com/BryantDev_"><i class="social-media-icon fab fa-twitter" alt="Twitter icon"></i></a>
                 <a target="_blank" href="https://github.com/veD-tnayrB"><i class="social-media-icon fab fa-github"></i></a>
             </div>
         </footer>
-
-
-
-        <template id="listed-product">
-            <li class="product">
-                <img class="product-image">
-                <h2 class="product-name"></h2>
-                <h3 class="product-price"></h3>
-                <h4 class="product-maker"></h4>
-            </li>
-        </template>
-
-        <template id="selected-product">
-            <tr class="product-selected">
-                <td><img src="" class="product-selected-img"></td>
-                <td><h2 class="product-name"></h2></td>
-                <td><h3 class="product-price"></h3></td>
-                <td><h4 class="product-maker"></h4></td>
-                <td>
-                    <div class="count-cont">
-                        <button class="count-button">-</button>
-                        <span class="count-indicator">1</span>
-                        <button class="count-button">+</button>
-                    </div>
-                </td>
-                <td><button class="delete-button"><i class="delete-product-icon fas fa-trash"></i></button></td>
-            </tr>
-        </template>
-
-
 
         <script type="module" src="app.js"></script>
     </body>

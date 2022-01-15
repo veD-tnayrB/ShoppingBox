@@ -1,0 +1,64 @@
+[ 
+    {
+        "image": "assets/img/products/Alcatel.webp",
+        "name": "Alcatel",
+        "price": "100$",
+        "maker": "Alcatel MX"
+    },
+
+    {
+        "image": "assets/img/products/Iphone11.webp",
+        "name": "Iphone 11",
+        "price": "350$",
+        "maker": "Apple"
+    },
+
+    {
+        "image": "assets/img/products/Nova.webp",
+        "name": "Nova 13-A",
+        "price": "140$",
+        "maker": "Nova JP"
+    },
+
+    {
+        "image": "assets/img/products/Poco.webp",
+        "name": "Poco",
+        "price": "120$",
+        "maker": "Poco JP"
+    },
+
+    {
+        "image": "assets/img/products/PocoX3.webp",
+        "name": "Poco X3",
+        "price": "120$",
+        "maker": "Poco NZ"
+    },
+
+    {
+        "image": "assets/img/products/SamsungA21S.webp",
+        "name": "Samsung A21S",
+        "price": "210$",
+        "maker": "Samsung VE"
+    },
+
+    {
+        "image": "assets/img/products/SamsungGalaxyA72.webp",
+        "name": "Samsung Galaxy A72",
+        "price": "340$",
+        "maker": "Samsung CO"
+    },
+
+    {
+        "image": "assets/img/products/XiaomiRemi9A.webp",
+        "name": "Xiaomi Redmi 9A",
+        "price": "150$",
+        "maker": "Xiaomi MX"
+    },
+
+    {
+        "image": "assets/img/products/ZTE.webp",
+        "name": "ZTE",
+        "price": "240$",
+        "maker": "ZTE ARG"
+    }
+]
