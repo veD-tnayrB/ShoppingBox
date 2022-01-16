@@ -24,7 +24,7 @@ productList.addEventListener('click', e => {
     let product;
 
     // Verify that the correct element has been selected
-    e.target.classList.value === 'product' ? product = e.target : e.target.parentNode.classList.value === 'product' ? product = e.target.parentNode : console.log('any product has been selected');
+    e.target.classList.value === 'product' ? product = e.target : e.target.parentNode.classList.value === 'product' ? product = e.target.parentNode : console.log('any product selected');
     
     UI.addProduct(product)
 

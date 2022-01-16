@@ -247,6 +247,7 @@ body {
 }
 
 .product-image {
+    max-width: 310px;
     min-height: 322px;
 
     margin: 5px;
@@ -524,6 +525,7 @@ body {
 
     #shop-box-list {
         width: 100%;
+        height: 100vh;
     }
     
    #shop-box-title {
@@ -535,7 +537,7 @@ body {
 
     #table-body {
         width: 95vw;
-        height: 100vh;
+        height: 88vh;
     }
 
     #total-cont {
@@ -544,6 +546,12 @@ body {
         position: fixed;
         bottom: 0;
     }
+
+    .product-selected td:nth-child(2) {
+        width: 100px;
+
+        margin: 0 5px 0 5px;
+}
 
     .product-selected .product-name, .product-selected .product-price, .product-selected .product-maker {
         font-size: 14px;
@@ -558,7 +566,7 @@ body {
     }
 
     .delete-button {
-        margin: 0 20px;
+        margin: 0 15px;
         padding: 8px 5px;
     }
 }
