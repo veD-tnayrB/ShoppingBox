@@ -1,4 +1,53 @@
-[ 
+[
+    {
+        "image": "assets/img/products/Alcatel1v.webp",
+        "name": "Alcatel 1v",
+        "price": "200$",
+        "maker": "Alcatel CO"
+    },
+
+    {
+        "image": "assets/img/products/Iphone11Black.webp",
+        "name": "Iphone 11 Black",
+        "price": "450$",
+        "maker": "Apple"
+    },
+
+    {
+        "image": "assets/img/products/MotorolaE20.webp",
+        "name": "Motorola E20",
+        "price": "150$",
+        "maker": "Motorola MX"
+    },
+
+    {
+        "image": "assets/img/products/SamsungA03s.webp",
+        "name": "Samsung A03s",
+        "price": "400$",
+        "maker": "Samsung ARG"
+    },
+
+    {
+        "image": "assets/img/products/XiaomiBlue.webp",
+        "name": "Xiaomi Blue",
+        "price": "350$",
+        "maker": "Xiaomi JP"
+    },
+
+    {
+        "image": "assets/img/products/XiaomiRedmiNote10.webp",
+        "name": "Xiaomi Redmi Note 10",
+        "price": "150$",
+        "maker": "Xiaomi CO"
+    },
+
+    {
+        "image": "assets/img/products/XiaomiRedmiPoco.webp",
+        "name": "Xiaomi Redmi Poco",
+        "price": "450$",
+        "maker": "Xiaomi VE"
+    },
+
     {
         "image": "assets/img/products/Alcatel.webp",
         "name": "Alcatel",

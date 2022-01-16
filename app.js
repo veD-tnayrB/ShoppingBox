@@ -23,7 +23,7 @@ searchBar.addEventListener('keyup', () => UI.showSearchedProduct(searchBar.value
 productList.addEventListener('click', e => {
     let product;
 
-    // Verify what the correct element has been selected
+    // Verify that the correct element has been selected
     e.target.classList.value === 'product' ? product = e.target : e.target.parentNode.classList.value === 'product' ? product = e.target.parentNode : console.log('any product has been selected');
     
     UI.addProduct(product)
@@ -46,19 +46,18 @@ const buyButton = document.getElementById('buy-button');
 buyButton.addEventListener('click', () => UI.buyProducts())
 
 
-// Hide and Show the shopping box seccion in mobile devices
-const shoppingBoxSeccion = document.getElementById('selected-section');
+// Show the Shopping Box
+const shoppingBoxSection = document.getElementById('selected-section');
 
-const openShoppingBoxButton = document.getElementById('open-shopping-box-button');
-openShoppingBoxButton.addEventListener('click', e => {
-    UI.setAnimation(shoppingBoxSeccion, 'flex', 'shoppingBoxAppear', '300ms');
-    openShoppingBoxButton.style.display = 'none';
-});
+const openBoxButton = document.getElementById('open-box-icon');
+openBoxButton.addEventListener('click', () => {
+    UI.setAnimation(shoppingBoxSection, 'flex', 'shoppingBoxAppear', '300ms');
 
-const closeShoppingBoxButton = document.getElementById('close-button');
-closeShoppingBoxButton.addEventListener('click', e => {
-    UI.setAnimation(shoppingBoxSeccion, 'flex', 'shoppingBoxDisappear', '300ms', true);
-    openShoppingBoxButton.style.display = 'flex';
 })
 
-// This is working progress, calm down, the hard part is done. (This is a comment for myself)
+// Hide the Shopping Box
+const closeBoxButton = document.getElementById('close-button');
+closeBoxButton.addEventListener('click', () => {
+    UI.setAnimation(shoppingBoxSection, 'flex', 'shoppingBoxDisappear', '200ms', true, '200ms');
+
+})

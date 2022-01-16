@@ -28,7 +28,7 @@ export default class UI {
     }
 
     static flagproduct(product) {
-        const checkIcon = `<i class="fas fa-check-circle"><i/>`;
+        const checkIcon = `<i class="fas fa-check-circle"></i>`;
         product.innerHTML += checkIcon;
         
     }
@@ -107,8 +107,6 @@ export default class UI {
         messageZone.textContent = message;
         messageCont.appendChild(messageZone);
         UI.setAnimation(messageZone, 'flex', 'messageAppear', '300ms', true);
-        
-
 
     }
     
@@ -134,17 +132,21 @@ export default class UI {
         }
     }
 
-    static setAnimation(element, setInitialDisplay, animation, duration, hideLater = false, dissapearDelay = '0.1') {
+    static setAnimation(element, setInitialDisplay, animation, duration, hideLater = false, disappearIn = '2500ms') {
         element.style.display = setInitialDisplay;
         element.style.animation = `${animation} ${duration} ease-in-out`;
 
         if (hideLater === true) {
-            setTimeout(() => element.style.display = 'none', Number(duration.replace('ms', '')) + dissapearDelay);
+            setTimeout(() => {
+                element.style.display = 'none';
+
+            }, Number(disappearIn.replace('ms', '')));
         }
 
-        setTimeout(() => element.style.animation = '', Number(duration.replace('ms', '')) - 50);
+        setTimeout(() => element.style.animation = '', Number(duration.replace('ms', '')) * 2 + 1);
 
     }
+
 }
 
 function breakStructure(product) {
@@ -158,7 +160,7 @@ function breakStructure(product) {
 
 const listedProductStructure = (image, name, price, maker) => {
     return  `
-    <li class="product">
+    <li transate="no" class="product">
         <img src="${image}" class="product-image">
         <h2 class="product-name">${name}</h2>
         <h3 class="product-price">${price}</h3>
@@ -168,7 +170,7 @@ const listedProductStructure = (image, name, price, maker) => {
 
 const selectedProductStructure = (image, name, price, maker) => {
     return `
-         <tr class="product-selected">
+         <tr transate="no" class="product-selected">
             <td><img src="${image}" class="product-selected-img"></td>
             <td><h2 class="product-name">${name}</h2></td>
             <td><h3 class="product-price">${price}</h3></td>

@@ -25,7 +25,7 @@
                 </div>
                 <input id="search-bar" type="text" placeholder="Insert product name...">
 
-                <i id="settings-icon" class="fas fa-cog" title="Options Button"></i>
+                <button id="open-box-button"><i title="Open shopping box" id="open-box-icon" class="fas fa-box-open"></i></button>
             </nav>
         </header>
 
@@ -33,36 +33,35 @@
         <main id="main">
             <section>
                 <ul id="product-list">
-                    
+                    <!-- Listed Products Here! -->
                 </ul>
             </section>
             
-            <!-- Products selected list Zone -->
-            <section id="selected-section">
-                <table id="shop-box-list">
-                    <thead id="shop-box-title">
-                        <th>Shopping Box</th>
-                    </thead>
-                    <tbody id="table-body">
-
-                        <!-- Products selected here! -->
-    
-                    </tbody>
-                </table>
-
-                <div id="total-cont">
-                    <button id="close-button"><i id="close-button-icon" class="fas fa-times" alt="Close button"></i></button>
-                    <h4 id="total">TOTAL: 0$</h4>
-                    <button type="submit" id="buy-button">Buy</button>
-                </div>
-            
-            </section>
             <div id="message-zone-cont">
-                <!-- Message here OK???? -->
+                <!-- Message here -->
             </div>
         </main>
 
-        <button id="open-shopping-box-button"><i class="fas fa-box-open"></i></button>
+        <!-- Products Listed Zone -->
+        <section id="selected-section">
+            <table id="shop-box-list">
+                <thead id="shop-box-title">
+                    <th>Shopping Box</th>
+                </thead>
+                <tbody id="table-body">
+
+                    <!-- Products selected here! -->
+
+                </tbody>
+            </table>
+
+            <div id="total-cont">
+                <button id="close-button"><i id="close-button-icon" class="fas fa-times" alt="Close button"></i></button>
+                <h4 id="total">TOTAL: 0$</h4>
+                <button type="submit" id="buy-button">Buy</button>
+            </div>
+            
+        </section>
 
         <!-- Footer Zone -->
         <footer id="footer">
@@ -74,6 +73,7 @@
                 <a target="_blank" href="https://github.com/veD-tnayrB"><i class="social-media-icon fab fa-github"></i></a>
             </div>
         </footer>
+
 
         <script type="module" src="app.js"></script>
     </body>
