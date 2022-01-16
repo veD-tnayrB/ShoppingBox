@@ -23,8 +23,6 @@ body {
 
     scroll-behavior: smooth;
     overflow-x: hidden;
-    
-    min-height: 580px;
 }
 
 /* Header nav */
@@ -274,6 +272,7 @@ body {
 /* Shop Box List */
 #selected-section {
     width: 100vw;
+    height: 100vh;
 
     position: fixed;
     top: -25px;
@@ -314,7 +313,7 @@ body {
     color: #FFF;
     
     width: 100vw;
-    height: 60px;
+    height: 50px;
     
     margin: 25px 0 0 0;
 
@@ -329,7 +328,7 @@ body {
 
 #shop-box-list {
     width: 100vw;
-    min-width: 320px;
+    height: 95vh;
 
     display: flex;
     flex-direction: column;
@@ -342,7 +341,8 @@ body {
 
     width: 100vw;
     min-width: 320px;
-    height: 82vh;
+    min-height: 95px;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -482,7 +482,10 @@ body {
     
     width: 100vw;
     min-width: 320px;
-    height: 60px;
+    min-height: 60px;
+
+    position: fixed;
+    bottom: 0;
 
     display: flex;
     justify-content: space-around;
@@ -542,9 +545,6 @@ body {
 
     #total-cont {
         width: 95%;
-
-        position: fixed;
-        bottom: 0;
     }
 
     .product-selected td:nth-child(2) {
