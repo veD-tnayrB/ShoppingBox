@@ -95,6 +95,10 @@ body {
     transition: transform 100ms ease-in-out;
 }
 
+#open-box-button:hover {
+    transform: scale(1.2);
+}
+
 #open-box-button:active {
     transform: rotateZ(-80deg);
 }
@@ -112,20 +116,12 @@ body {
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    box-shadow: 0 0 15px 5px #03a703;
 
     position: absolute;
     top: -1px;
     left: -2px;
-
-    animation: notification ease-in infinite 1s;
 }
 
-@keyframes notification {
-    to {
-        box-shadow: 0 0 10px 5px #016201;
-    }
-}
 
 @media (max-width: 800px) {
     #text-logo{
