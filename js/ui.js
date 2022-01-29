@@ -33,10 +33,21 @@ export default class UI {
         
     }
 
+    static setNotification() {
+        const openShoppingBoxButton = document.getElementById('open-box-icon');
+        const notificationIcon = `<div class="notification-icon"></div>`;
+        openShoppingBoxButton.innerHTML = notificationIcon;
+    }
+
+    static removeNotification() {
+        const openShoppingBoxButton = document.getElementById('open-box-icon');
+        openShoppingBoxButton.innerHTML = '';
+    }
+
     static addProduct(product) {
         let checkIcon = product.querySelector('.fa-check-circle');
 
-        if (checkIcon === null) {
+        if (!checkIcon) {
             const [image, name, price, maker] = breakStructure(product);
 
             const productReady = selectedProductStructure(image, name, price, maker);

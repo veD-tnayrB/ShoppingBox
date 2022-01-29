@@ -26,8 +26,8 @@ productList.addEventListener('click', e => {
     // Verify that the correct element has been selected
     e.target.classList.value === 'product' ? product = e.target : e.target.parentNode.classList.value === 'product' ? product = e.target.parentNode : console.log('any product selected');
     
-    UI.addProduct(product)
-
+    UI.addProduct(product);
+    UI.setNotification();
 });
 
 
@@ -52,7 +52,8 @@ const shoppingBoxSection = document.getElementById('selected-section');
 const openBoxButton = document.getElementById('open-box-icon');
 openBoxButton.addEventListener('click', () => {
     UI.setAnimation(shoppingBoxSection, 'flex', 'shoppingBoxAppear', '300ms');
-
+    UI.removeNotification();
+    
 })
 
 // Hide the Shopping Box
