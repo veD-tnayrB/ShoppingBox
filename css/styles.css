@@ -602,7 +602,7 @@ body {
     color: #FFF;
     font-size: 45px;
 
-    transition: transform 200ms ease-in;
+    transition: transform 500ms ease-in;
 }
 
 .social-media-icon:hover {
